@@ -1,0 +1,14 @@
+C:\Users\ChaseLaptop\Documents\CSharp\BankingLedger\BankingLedger\obj\Debug\netcoreapp3.1\BankingLedger.csprojAssemblyReference.cache
+C:\Users\ChaseLaptop\Documents\CSharp\BankingLedger\BankingLedger\obj\Debug\netcoreapp3.1\BankingLedger.AssemblyInfoInputs.cache
+C:\Users\ChaseLaptop\Documents\CSharp\BankingLedger\BankingLedger\obj\Debug\netcoreapp3.1\BankingLedger.AssemblyInfo.cs
+C:\Users\ChaseLaptop\Documents\CSharp\BankingLedger\BankingLedger\bin\Debug\netcoreapp3.1\BankingLedger.exe
+C:\Users\ChaseLaptop\Documents\CSharp\BankingLedger\BankingLedger\bin\Debug\netcoreapp3.1\BankingLedger.deps.json
+C:\Users\ChaseLaptop\Documents\CSharp\BankingLedger\BankingLedger\bin\Debug\netcoreapp3.1\BankingLedger.runtimeconfig.json
+C:\Users\ChaseLaptop\Documents\CSharp\BankingLedger\BankingLedger\bin\Debug\netcoreapp3.1\BankingLedger.runtimeconfig.dev.json
+C:\Users\ChaseLaptop\Documents\CSharp\BankingLedger\BankingLedger\bin\Debug\netcoreapp3.1\BankingLedger.dll
+C:\Users\ChaseLaptop\Documents\CSharp\BankingLedger\BankingLedger\bin\Debug\netcoreapp3.1\BankingLedger.pdb
+C:\Users\ChaseLaptop\Documents\CSharp\BankingLedger\BankingLedger\obj\Debug\netcoreapp3.1\BankingLedger.dll
+C:\Users\ChaseLaptop\Documents\CSharp\BankingLedger\BankingLedger\obj\Debug\netcoreapp3.1\BankingLedger.pdb
+C:\Users\ChaseLaptop\Documents\CSharp\BankingLedger\BankingLedger\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
+C:\Users\ChaseLaptop\Documents\CSharp\BankingLedger\BankingLedger\obj\Debug\netcoreapp3.1\BankingLedger.csproj.CopyComplete
+C:\Users\ChaseLaptop\Documents\CSharp\BankingLedger\BankingLedger\bin\Debug\netcoreapp3.1\Json.Net.dll

@@ -1,0 +1,84 @@
+[
+  {
+    "Checking Account": {
+      "AccountTransactions": [
+        {
+          "transactionType": "Deposit",
+          "description": "Paycheck",
+          "dateTime": "1-22-2020/20:10:17",
+          "amount": 1200.0
+        }
+      ],
+      "accountIdentifier": "Checking Account",
+      "accountNumber": 1001,
+      "balance": 1200.0
+    },
+    "Savings Account": {
+      "AccountTransactions": [
+        {
+          "transactionType": "Deposit",
+          "description": "Paycheck",
+          "dateTime": "1-22-2020/20:20:24",
+          "amount": 3000.0
+        }
+      ],
+      "accountIdentifier": "Savings Account",
+      "accountNumber": 1002,
+      "balance": 3000.0
+    },
+    "firstName": "Chase",
+    "lastName": "Anzelc",
+    "userName": "cja",
+    "password": "password"
+  },
+  {
+    "Checking Account": {
+      "AccountTransactions": [
+        {
+          "transactionType": "Deposit",
+          "description": "paycheck",
+          "dateTime": "1-22-2020/20:23:39",
+          "amount": 2000.0
+        },
+        {
+          "transactionType": "Withdraw",
+          "description": "bills",
+          "dateTime": "1-22-2020/20:24:15",
+          "amount": 1200.0
+        },
+        {
+          "transactionType": "Withdraw",
+          "description": "New Shoes",
+          "dateTime": "1-22-2020/20:52:49",
+          "amount": 350.0
+        },
+        {
+          "transactionType": "Withdraw",
+          "description": "Fast Food",
+          "dateTime": "1-22-2020/20:53:07",
+          "amount": 12.25
+        }
+      ],
+      "accountIdentifier": "Checking Account",
+      "accountNumber": 1001,
+      "balance": 437.75
+    },
+    "Savings Account": {
+      "AccountTransactions": [
+        {
+          "transactionType": "Deposit",
+          "description": "Sale of House",
+          "dateTime": "1-22-2020/20:51:48",
+          "amount": 32000.0
+        }
+      ],
+      "accountIdentifier": "Savings Account",
+      "accountNumber": 1002,
+      "balance": 32000.0
+    },
+    "firstName": "Kirsten",
+    "lastName": "Anzelc",
+    "userName": "kanzelc",
+    "password": "password"
+  }
+]
