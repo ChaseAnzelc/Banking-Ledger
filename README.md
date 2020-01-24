@@ -6,7 +6,7 @@ BankingLedgerWebApplication- C# ASP .NET  Web Application<br><br>
 *...as long as .Net is setup on your computer
 
 # Overview
-This Application is a small version of a banking ledger.<br>
+This Application is a small version of a bank.<br>
 
 Console Applicaiton - Built with c#<br>
 Web Application - Built with c# and ASP .NET - uses bootstrap to style<br>
