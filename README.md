@@ -1,6 +1,9 @@
 # Banking-Ledger
 BankingLedger - C# Console Application <br>
-BankingLedgerWebApplication- C# ASP .NET  Web Application<br>
+BankingLedgerWebApplication- C# ASP .NET  Web Application<br><br>
+
+*Both can be run from the command line with the command -> dotnet run<br>
+*...as long as .Net is setup on your computer
 
 # Overview
 This Application is a small version of a banking ledger.<br>
