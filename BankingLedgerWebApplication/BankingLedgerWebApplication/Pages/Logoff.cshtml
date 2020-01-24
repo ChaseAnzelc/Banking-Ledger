@@ -1,0 +1,14 @@
+﻿@page
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@model ContactModel
+@{
+    ViewData["Title"] = "Login";
+}
+@{
+    Session session = Program.getSession();
+    session.JsonSave();
+    Program.resetSession();
+
+    Response.Redirect("/");
+}
+

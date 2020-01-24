@@ -1,0 +1,27 @@
+﻿@page
+@model SavingsModel
+@{
+    ViewData["Title"] = "Account";
+    TempData["currentaccount"] = "Savings Account";
+    TempData["curacct"] = "SavingsAccount";
+    Session session = Program.getSession();
+    session.currentAccount = "Savings Account";
+
+}
+<br />
+<br />
+<h1>Savings Account</h1>
+<br />
+<br />
+<div class="jumbotron">
+    <h1 class="display-4">Welcome to your Savings Account</h1>
+    <p class="lead">We want to thank for being a valued client at our esteemed bank.</p>
+    <hr class="my-4">
+    <p>Please choose from the following options!</p>
+    <p class="lead">
+        <a class="btn btn-primary btn-lg" asp-page="\Deposit" role="button">Deposit</a>
+        <a class="btn btn-primary btn-lg" asp-page="\Withdraw" role="button">Withdraw</a>
+        <a class="btn btn-primary btn-lg" asp-page="\ViewAllTransactions" role="button">View All Transactions</a>
+        <a class="btn btn-primary btn-lg" asp-page="\CheckBalance" role="button">Check Balance</a>
+    </p>
+</div>

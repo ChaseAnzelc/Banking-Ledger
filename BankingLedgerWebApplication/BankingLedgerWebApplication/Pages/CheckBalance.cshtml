@@ -1,0 +1,21 @@
+﻿@page
+@model BankingLedgerWebApplication.CheckBalanceModel
+@{
+    ViewData["Title"] = "CheckBalance";
+
+    
+
+    Session session;
+    session = Program.getSession();
+    string currentaccount = session.currentAccount;
+
+    double balance = session.getBalance(session.currentAccount);
+
+}
+<br />
+<br />
+<h1>Current Balance</h1>
+<br />
+<br />
+<h3>Your balance of your @currentaccount is $@balance</h3>
+

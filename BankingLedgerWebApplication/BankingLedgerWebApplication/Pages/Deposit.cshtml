@@ -1,0 +1,41 @@
+﻿@page
+@model BankingLedgerWebApplication.DepositModel
+@{
+    ViewData["Title"] = "Deposit";
+    Session session;
+    session = Program.getSession();
+
+    string currentAccount = session.currentAccount;
+
+   
+    string curacct = (string)TempData["curacct"];
+}
+
+<br />
+<br />
+<h2>Deposit Into Your @currentAccount</h2>
+<br />
+<br />
+<form action="" method="post">
+    <fieldset>
+        <div class="form-group">
+            <label for="description">Deposit Description</label>
+            <input type="text" class="form-control" name="description" placeholder="Enter description">
+        </div>
+        <div class="form-group">
+            <label for="amount">Deposit Amount</label>
+            <input type="text" class="form-control" name="amount" placeholder="Enter amount">
+        </div>
+        <br />
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </fieldset>
+</form>
+
+@{ 
+    if(curacct == "Changed")
+    {
+        Response.Redirect("/CheckBalance");
+    }
+
+
+}

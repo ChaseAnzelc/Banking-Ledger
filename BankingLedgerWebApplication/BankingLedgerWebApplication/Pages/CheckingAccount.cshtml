@@ -1,0 +1,26 @@
+﻿@page
+@model CheckingModel
+@{
+    ViewData["Title"] = "Account";
+    TempData["currentaccount"] = "Checking Account";
+    Session session = Program.getSession();
+    session.currentAccount = "Checking Account";
+    TempData["curacct"] = "CheckingAccount";
+}
+<br />
+<br />
+<h1>Checking Account</h1>
+<br />
+<br />
+<div class="jumbotron">
+    <h1 class="display-4">Welcome to your Checking Account</h1>
+    <p class="lead">We want to thank for being a valued client at our esteemed bank.</p>
+    <hr class="my-4">
+    <p>Please choose from the following options!</p>
+    <p class="lead">
+        <a class="btn btn-primary btn-lg" asp-page="\Deposit" role="button">Deposit</a>
+        <a class="btn btn-primary btn-lg" asp-page="\Withdraw" role="button">Withdraw</a>
+        <a class="btn btn-primary btn-lg" asp-page="\ViewAllTransactions" role="button">View All Transactions</a>
+        <a class="btn btn-primary btn-lg" asp-page="\CheckBalance" role="button">Check Balance</a>
+    </p>
+</div>

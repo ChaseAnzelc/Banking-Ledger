@@ -1,0 +1,68 @@
+﻿@page
+@model BankingLedgerWebApplication.ViewAllTransactionsModel
+@{
+    ViewData["Title"] = "ViewAllTransactions";
+
+
+    Session session;
+    session = Program.getSession();
+
+    string currentAccount = session.currentAccount;
+
+
+    string curacct = (string)TempData["curacct"];
+
+    List<Transaction> transactions = new List<Transaction>();
+
+    transactions = session.viewAllTransactions();
+    int i = 1;
+
+}
+<br />
+<br />
+<h2>View All Transactions - @currentAccount</h2>
+<br />
+<br />
+
+
+@{ 
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th scope="col">Type</th>
+            <th scope="col">Description</th>
+            <th scope="col">Date/Time</th>
+            <th scope="col">Amount</th>
+        </tr>
+    </thead>
+    <tbody>
+        @{
+            foreach (var trans in transactions)
+            {
+
+                if (i % 2 == 1)
+                {
+                    <tr class="table-active">
+                        <th scope="row">@trans.transactionType</th>
+                        <td>@trans.description</td>
+                        <td>@trans.dateTime</td>
+                        <td>@trans.amount</td>
+                    </tr>
+                }
+                else
+                {
+                    <tr>
+                        <th scope="row">@trans.transactionType</th>
+                        <td>@trans.description</td>
+                        <td>@trans.dateTime</td>
+                        <td>@trans.amount</td>
+                    </tr>
+                }
+                i++;
+            }
+        }
+    </tbody>
+</table>
+
+}
+
