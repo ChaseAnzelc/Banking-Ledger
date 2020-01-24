@@ -5,7 +5,7 @@ Banking Ledger - C# Console Application - C# ASP .NET  Web Application
 This Application is a small version of a banking ledger.<br>
 
 Console Applicaiton - Built with c#<br>
-Web Application - Built with c# and ASP .NET<br>
+Web Application - Built with c# and ASP .NET - uses bootstrap to style<br>
 
 What it can do:<br>
     Login<br>
