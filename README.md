@@ -2,14 +2,14 @@
 Banking Ledger - C# Console Application - C# ASP .NET  Web Application
 
 # Overview
-This Application is a small version of a banking ledger.
+This Application is a small version of a banking ledger.<br>
 
-Console Applicaiton - Built with c#
-Web Application - Built with c# and ASP .NET
+Console Applicaiton - Built with c#<br>
+Web Application - Built with c# and ASP .NET<br>
 
-What it can do:
-    Login
-    Sign Up [Creates Checking Account]
+What it can do:<br>
+    Login<br>
+    Sign Up [Creates Checking Account]<br>
     Create New Account [Savings]
     Change Account [Checking, Savings]
     Record a deposit
