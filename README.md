@@ -34,4 +34,4 @@ You can delete the database.json file and the program will create a new one for 
 
 # Web Application Demo
 
-[Click Here For Presentation<img src="/Images/Banking_Bedger_Web.PNG"></img>](https://drive.google.com/open?id=1LFwAQbF64puryaaDs6MbyWY-r8cY3hnL)
+[Click Here For Presentation<img src="/Images/Banking_Ledger_Web.PNG"></img>](https://drive.google.com/open?id=1LFwAQbF64puryaaDs6MbyWY-r8cY3hnL)
