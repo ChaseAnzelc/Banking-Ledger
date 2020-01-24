@@ -1,5 +1,6 @@
 # Banking-Ledger
-Banking Ledger - C# Console Application - C# ASP .NET  Web Application
+BankingLedger - C# Console Application 
+BankingLedgerWebApplication- C# ASP .NET  Web Application
 
 # Overview
 This Application is a small version of a banking ledger.<br>
