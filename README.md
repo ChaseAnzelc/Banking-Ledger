@@ -21,7 +21,7 @@ What it can do:<br>
     Record a withdrawal<br>
     Check balance<br>
     View all transaction history<br>
-    Log Out [Saves to Json File "database"]<br><br>
+    Log Out [Saves to Json File instead of a "database"]<br><br>
     
 *Only real change from console application to web application was Session class<br>
 *All other classes stayed mostly the same<br><br>
