@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 
 namespace BankingLedger
 {
@@ -127,19 +128,75 @@ namespace BankingLedger
 
         private void createAccount()
         {
+            string namePattern = "^[A-Z][a-z]+$";
+            string usernamePattern = "^[A-Za-z0-9_-]{3,15}$";
+            string passwordPattern = "^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d]{8,}$"; 
+            string inputValue = "";
+            string firstName = "";
+            string lastName = "";
+            string userName = "";
+            string password = "";
+
+            Match m = Regex.Match(inputValue, namePattern);
+
+
             Console.Clear();
             Console.WriteLine($"{heading}\nLet's Create a New Account!\n");
             Console.WriteLine("[This will also create a new Checking Account for you]\n\n");
-
-
-            Console.Write("Enter First Name: ");
-            string firstName = Console.ReadLine();
-            Console.Write("Enter Last Name: ");
-            string lastName = Console.ReadLine();
-            Console.Write("Enter UserName: ");
-            string userName = Console.ReadLine();
-            Console.Write("Enter Password: ");
-            string password = Console.ReadLine();
+            while (!m.Success)
+            {
+                Console.Write("Enter First Name: ");
+                inputValue = Console.ReadLine();
+                m = Regex.Match(inputValue, namePattern);
+                if (!m.Success)
+                {
+                    Console.WriteLine("\nFirst name must have upper case first letter and lower case letters only for the rest");
+                    Console.WriteLine("Please try again!\n");
+                }
+            }
+            firstName = inputValue;
+            inputValue = "";
+            m = Regex.Match(inputValue, namePattern);
+            while (!m.Success)
+            {
+                Console.Write("Enter Last Name: ");
+                inputValue = Console.ReadLine();
+                m = Regex.Match(inputValue, namePattern);
+                if (!m.Success)
+                {
+                    Console.WriteLine("\nLast name must have upper case first letter and lower case letters only for the rest");
+                    Console.WriteLine("Please try again!\n");
+                }
+            }
+            lastName = inputValue;
+            inputValue = "";
+            m = Regex.Match(inputValue, namePattern);
+            while (!m.Success)
+            {
+                Console.Write("Enter Username: ");
+                inputValue = Console.ReadLine();
+                m = Regex.Match(inputValue, usernamePattern);
+                if (!m.Success)
+                {
+                    Console.WriteLine("\nUsername must have 3-15 characters allowing upper case letters, lower case letters, numbers, underscores, and hyphens");
+                    Console.WriteLine("Please try again!\n");
+                }
+            }
+            userName = inputValue;
+            inputValue = "";
+            m = Regex.Match(inputValue, usernamePattern);
+            while (!m.Success)
+            {
+                Console.Write("Enter Password: ");
+                inputValue = Console.ReadLine();
+                m = Regex.Match(inputValue, passwordPattern);
+                if (!m.Success)
+                {
+                    Console.WriteLine("\nPassword must have a minimum of 8 characters, needs at least one number and one letter");
+                    Console.WriteLine("Please try again!\n");
+                }
+            }
+            password = inputValue;
 
             //Creating current user
             currentUser = new Client(firstName, lastName, userName, password);
@@ -161,7 +218,6 @@ namespace BankingLedger
 
             while (!choices.Contains(choice))
             {
-
                 Console.Clear();
                 Console.WriteLine($"{heading}\nWelcome {currentUser.firstName} {currentUser.lastName}! \n\n\n");
 
@@ -307,16 +363,42 @@ namespace BankingLedger
                     break;
                 //Deposit into Current Account
                 case "D":
+                    string description = "";
+                    double amount = 0.0;
+
                     Console.Clear();
                     Console.WriteLine($"{heading}\nAwesome let's make a deposit into your {currentAccount}!\n\n");
-                    Console.Write("Enter Deposit Description: ");
-                    string description = Console.ReadLine();
-                    Console.Write("Enter Deposit Amount: $");
-                    double amount = double.Parse(Console.ReadLine());
+                    while (description.Equals(""))
+                    {
+                        Console.Write("Enter Deposit Description: ");
+                        description = Console.ReadLine();
+                        if (description.Equals(""))
+                        {
+                            Console.WriteLine("\nPlease enter a description!\n");
+                        }
+                    }
+                    while (amount <= 0.0)
+                    {
+                        Console.Write("Enter Deposit Amount: $");
+                        try
+                        {
+                            amount = double.Parse(Console.ReadLine());
+                            if (amount <= 0.0)
+                            {
+                                Console.WriteLine("\nPlease enter a positive number!\n");
+                            }
+                        }
+                        catch (Exception e)
+                        {
+                            Console.WriteLine("\nPlease enter a valid number!\n");
+                        }
+                        
+                        
+                    }
                     currentUser.deposit(currentAccount, description, amount);
 
-                    Console.WriteLine($"\n\nCongratulations, You Deposited ${amount} into your {currentAccount}\n");
-                    Console.WriteLine($"Your current balance is now ${currentUser.getBalance(currentAccount)}\n\n");
+                    Console.WriteLine($"\n\nCongratulations, You Deposited $" + string.Format("{0:0.00}", amount)+ $" into your {currentAccount}\n");
+                    Console.WriteLine($"Your current balance is now $" + string.Format("{0:0.00}", currentUser.getBalance(currentAccount)) + "\n\n");
                     Console.Write("Press <Enter> to go back to menu...");
                     while (Console.ReadKey().Key != ConsoleKey.Enter) { }
                     userMenu();
@@ -324,23 +406,47 @@ namespace BankingLedger
                     break;
                 //Withdraw from Current Account
                 case "W":
+                    string withdrawDescription = "";
+                    double withdrawAmount = 0.0;
+
                     Console.Clear();
                     Console.WriteLine($"{heading}\nAwesome let's make a withdraw from your {currentAccount}!\n\n");
-                    Console.Write("Enter reason for Withdrawing: ");
-                    string withdrawDescription = Console.ReadLine();
-                    Console.Write("Enter Withdraw Amount: $");
-                    double withdrawAmount = double.Parse(Console.ReadLine());
-                    if (currentUser.getBalance(currentAccount) < withdrawAmount)
+
+                    while (withdrawDescription.Equals("") || withdrawAmount <= 0.0 || withdrawAmount > currentUser.getBalance(currentAccount))
                     {
-                        Console.WriteLine($"Your funds are lacking!! You currently have ${currentUser.getBalance(currentAccount)} but requested ${withdrawAmount}\n\n");
+                        
+                        Console.Write("Enter Withdraw Description: ");
+                        withdrawDescription = Console.ReadLine();
+                        if (!withdrawDescription.Equals(""))
+                        {
+
+                            Console.Write("Enter Withdraw Amount: $");
+
+                            try
+                            {
+                                withdrawAmount = double.Parse(Console.ReadLine());
+                                if (withdrawAmount <= 0.0)
+                                {
+                                    Console.WriteLine("\nPlease enter a valid positive number!\n");
+                                }
+                                if (currentUser.getBalance(currentAccount) < withdrawAmount)
+                                {
+                                    Console.WriteLine($"\nYour funds are lacking!! You currently have $" + string.Format("{0:0.00}", currentUser.getBalance(currentAccount)) + $" but requested $" + string.Format("{0:0.00}", withdrawAmount) + "\n\n");
+                                    Console.WriteLine("Please try again!");
+                                }
+                            }
+                            catch (Exception e)
+                            {
+                                Console.WriteLine("\nPlease enter valid number!\n");
+                            }
+
+                        }
+
                     }
-                    else
-                    {
-                        currentUser.withdraw(currentAccount, withdrawDescription, withdrawAmount);
-                        Console.WriteLine($"\n\nCongratulations, You Withdrew ${withdrawAmount} from your {currentAccount}\n");
-                        Console.WriteLine($"Your current balance is now ${currentUser.getBalance(currentAccount)}\n\n");
-                    }
-                    
+
+                    currentUser.withdraw(currentAccount, withdrawDescription, withdrawAmount);
+                    Console.WriteLine($"\n\nCongratulations, You Withdrew $" + string.Format("{0:0.00}", withdrawAmount)+ $" from your {currentAccount}\n");
+                    Console.WriteLine($"Your current balance is now $" + string.Format("{0:0.00}", currentUser.getBalance(currentAccount)) + "\n\n");
                     Console.Write("Press <Enter> to go back to menu...");
                     while (Console.ReadKey().Key != ConsoleKey.Enter) { }
                     userMenu();
@@ -362,7 +468,7 @@ namespace BankingLedger
                     Console.WriteLine($"{heading}\nLet's check the balance of your {currentAccount}!\n\n");
 
                     double balance = currentUser.getBalance(currentAccount);
-                    Console.WriteLine($"Your current balance of your {currentAccount} is ${balance}!");
+                    Console.WriteLine($"Your current balance of your {currentAccount} is $" + string.Format("{0:0.00}", balance) + "!");
 
                     Console.Write("\n\nPress <Enter> to go back to menu...");
                     while (Console.ReadKey().Key != ConsoleKey.Enter) { }

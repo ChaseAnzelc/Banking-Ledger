@@ -57,7 +57,7 @@ namespace BankingLedger
                 foreach (var trans in checkingAccount.AccountTransactions)
                     {
                         i++;
-                        Console.WriteLine($"Type: {trans.transactionType} Description: {trans.description} Date/Time: {trans.dateTime} Amount: ${trans.amount}");
+                        Console.WriteLine($"Type: {trans.transactionType} Description: {trans.description} Date/Time: {trans.dateTime} Amount: $" + string.Format("{0:0.00}", trans.amount));
                     }
             }
             else if(accountType.Equals("Savings Account"))
@@ -65,7 +65,7 @@ namespace BankingLedger
                 foreach (var trans in savingsAccount.AccountTransactions)
                 {
                     i++;
-                    Console.WriteLine($"Type: {trans.transactionType} Description: {trans.description} Date/Time: {trans.dateTime} Amount: ${trans.amount}");
+                    Console.WriteLine($"Type: {trans.transactionType} Description: {trans.description} Date/Time: {trans.dateTime} Amount: $" + string.Format("{0:0.00}", trans.amount));
                 }
             }
 
