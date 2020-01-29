@@ -4,7 +4,7 @@ BankingLedgerWebApplication- C# ASP .NET  Web Application<br><br>
 
 *Both can be run from the command line with the command -> dotnet run<br>
 *...as long as .Net is setup on your computer
-*for the web application put the https://localhost:5001 into your browser<br>
+*for the web application put the https://localhost:5001 into your browser<br> 
 
 # Overview
 This Application is a small version of a bank.<br>
