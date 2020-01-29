@@ -29,6 +29,17 @@ What it can do:<br>
 Quick login use without creating new account: Username- cja Password- password<br>
 You can delete the database.json file and the program will create a new one for you =)<br>
 
+The Stack...<br>
+
+Front-End:<br>
+[html][css][javascript][bootstrap][jquery][razor]<br>
+Back-End:<br>
+[C#]<br>
+Database:<br>
+[Json]<br>
+Framework:<br>
+[ASP .NET MVC]<br>
+
 # Console Application Demo
 
 [Click Here For Console Demo<img src="/Images/Banking_Ledger_Console.PNG"></img>](https://drive.google.com/open?id=17YGO9yxMVYqV39vvkoMfh1Ej9H0KOjUg)
