@@ -2,6 +2,7 @@
 @model ErrorModel
 @{
     ViewData["Title"] = "SignUp";
+    TempData["hello"] = "hello";
 }
 
 @{
@@ -14,29 +15,104 @@
     }
 
 
+
 }
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script>
+
+    var nameVal = new RegExp("^[A-Z][a-z]+$");
+    var usernameVal = new RegExp("^[A-Za-z0-9_-]{3,15}$");
+    var passwordVal = new RegExp("^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d]{8,}$");
+
+    var firstnameSet = false;
+    var lastnameSet = false;
+    var usernameSet = false;
+    var passwordSet = false; 
+    
+
+    $(document).ready(function () {
+            
+        $("#firstname").keyup(function () {
+            var firstname = $("#firstname").val();
+            if (!nameVal.test(firstname)) {
+                $("#firstNameAlert").text("Wrong format for first name. First name must have upper case first letter and lower case letters only for the rest");
+                firstnameSet = false;
+            }
+            else {
+                $("#firstNameAlert").text("");
+                firstnameSet = true;
+            }
+        });
+        $("#lastname").keyup(function () {
+            var lastname = $("#lastname").val();
+            if (!nameVal.test(lastname)) {
+                $("#lastNameAlert").text("Wrong format for last name. Last name must have upper case first letter and lower case letters only for the rest");
+                lastnameSet = false;
+            }
+            else {
+                $("#lastNameAlert").text("");
+                lastnameSet = true;
+            }
+        });
+        $("#username").keyup(function () {
+            var username = $("#username").val();
+            if (!usernameVal.test(username)) {
+                $("#usernameAlert").text("Wrong format for username. Username must have 3-15 characters allowing upper case letters, lower case letters, numbers, underscores, and hyphens");
+                usernameSet = false;
+            }
+            else {
+                $("#usernameAlert").text("");
+                usernameSet = true;
+            }
+        });
+        $("#password").keyup(function () {
+            var password = $("#password").val();
+            if (!passwordVal.test(password)) {
+                $("#passwordAlert").text("Wrong format for password. Password must have a minimum of 8 characters, needs at least one number and one letter");
+                passwordSet = false;
+            }
+            else {
+                $("#passwordAlert").text("");
+                passwordSet = true;
+            }
+        });
+        
+
+
+
+        $("#signupform").on("submit", function () {
+            if (!firstnameSet || !lastnameSet || !usernameSet || !passwordSet) {
+                    return false;
+                }
+            });
+        });
+</script>
 <br />
 <br />
 <h1>Sign Up</h1>
 <br />
 <br />
-<form action="" method="post">
+<form id="signupform" action="" method="post">
     <fieldset>
         <div class="form-group">
             <label for="firstName">First Name</label>
-            <input type="text" class="form-control" name="firstname" placeholder="Enter First Name">
+            <input type="text" class="form-control" id="firstname" name="firstname" placeholder="Enter First Name" required>
+            <p id="firstNameAlert"></p>
         </div>
         <div class="form-group">
             <label for="lastName">Last Name</label>
-            <input type="text" class="form-control" name="lastname" placeholder="Enter Last Name">
+            <input type="text" class="form-control" id="lastname" name="lastname" placeholder="Enter Last Name" required>
+            <p id="lastNameAlert"></p>
         </div>
         <div class="form-group">
             <label for="userName">Username</label>
-            <input type="text" class="form-control" name="username" placeholder="Enter username">
+            <input type="text" class="form-control" id="username" name="username" placeholder="Enter username" required>
+            <p id="usernameAlert"></p>
         </div>
         <div class="form-group">
             <label for="password">Password</label>
-            <input type="password" class="form-control" name="password" placeholder="Password">
+            <input type="password" class="form-control" id="password" name="password" placeholder="Password" required>
+            <p id="passwordAlert"></p>
         </div>
         <br />
         <button type="submit" class="btn btn-primary">Submit</button>
